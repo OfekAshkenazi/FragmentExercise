@@ -12,6 +12,9 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,9 +69,12 @@ public class FirstFragment extends Fragment {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int day, int month, int year) {
-                dateTV.setText(""+day+"."+month+"."+year);
+                dateTV.setText(""+year+"/"+(month+1)+"/"+day);
             }
         });
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String selectedDate = sdf.format(new Date(calendar.getDate()));
+        dateTV.setText(selectedDate);
         addBtn=view.findViewById(R.id.addBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override

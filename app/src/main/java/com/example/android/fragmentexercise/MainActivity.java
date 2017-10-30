@@ -52,6 +52,6 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.OnF
     @Override
     public void onFirstFragmentInteraction(MyEvent event) {
         fragment2.addEvent(event);
-        pager.setCurrentItem(1,true);
+        pager.setCurrentItem(pager.getChildCount()-1,true);
     }
 }

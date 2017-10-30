@@ -118,14 +118,8 @@ public class SecondFragment extends Fragment {
         }
 
         @Override
-        public Object getItem(int i) {
-            View view=LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_2,null);
-            TextView text1=view.findViewById(android.R.id.text1);
-            TextView text2=view.findViewById(android.R.id.text2);
-            MyEvent event=events.get(i);
-            text1.setText(event.getTitle());
-            text2.setText(event.getDate());
-            return view;
+        public MyEvent getItem(int i) {
+            return events.get(i);
         }
 
         @Override
@@ -135,7 +129,13 @@ public class SecondFragment extends Fragment {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
+            view=LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_2,null);
+            TextView text1=view.findViewById(android.R.id.text1);
+            TextView text2=view.findViewById(android.R.id.text2);
+            MyEvent event=events.get(i);
+            text1.setText(event.getTitle());
+            text2.setText(event.getDate());
+            return view;
         }
     }
 }
